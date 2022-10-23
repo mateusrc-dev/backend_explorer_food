@@ -9,8 +9,8 @@ class AllRequestsController {
     return response.json()
   }
   async update(request, response) {
-    const { status } = request.body
-    const { id } = request.params;
+    const { status, id } = request.body
+    //const { id } = request.params;
     const database = await sqliteConnection()
     const requests = await database.get("SELECT * FROM allRequests WHERE id = (?)", [id])
     requests.status = status
