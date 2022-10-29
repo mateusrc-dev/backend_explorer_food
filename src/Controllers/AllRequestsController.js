@@ -28,8 +28,12 @@ class AllRequestsController {
     return response.json()
   }
   async index(request, response) {
-    const { user_id } = request.query
-    const allRequests = await knex("allRequests").where({ user_id }).orderBy("details")
+    const allRequests = await knex("allRequests").orderBy("details")
+    return response.json({ allRequests })
+  }
+  async show(request, response) {
+    const { id } = request.params
+    const allRequests = await knex("allRequests").where({ user_id: id })
     return response.json({ allRequests })
   }
 }

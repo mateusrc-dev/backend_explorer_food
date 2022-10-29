@@ -8,5 +8,6 @@ allRequestsRoutes.post("/:user_id", allRequestsController.create)
 allRequestsRoutes.get("/", allRequestsController.index)
 allRequestsRoutes.delete("/:id", allRequestsController.delete)
 allRequestsRoutes.put("/", allRequestsController.update)
+allRequestsRoutes.get("/:id", allRequestsController.show)
 
 module.exports = allRequestsRoutes

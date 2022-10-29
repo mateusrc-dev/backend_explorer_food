@@ -8,6 +8,7 @@ const allRequestsRouter = require("./allRequests.routes")
 const favoritesDishesRouter = require("./favoritesDishes.routes")
 const favoritesDrinksRouter = require("./favoritesDrinks.routes")
 const favoritesDessertsRouter = require("./favoritesDesserts.routes")
+const admRouter = require("./adm.routes")
 
 const routes = Router()
 
@@ -20,5 +21,6 @@ routes.use("/favoritesdishes", favoritesDishesRouter)
 routes.use("/favoritesdrinks", favoritesDrinksRouter)
 routes.use("/favoritesdesserts", favoritesDessertsRouter)
 routes.use("/allrequests", allRequestsRouter)
+routes.use("/adm", admRouter)
 
 module.exports = routes
