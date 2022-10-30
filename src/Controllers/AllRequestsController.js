@@ -4,7 +4,8 @@ const sqliteConnection = require("../database/sqlite")
 class AllRequestsController {
   async create(request, response) {
     const { details, status } = request.body
-    const { user_id } = request.params
+    const user_id = request.user.id
+    //const { user_id } = request.params
     await knex("allRequests").insert({ details, status, user_id })
     return response.json()
   }
@@ -32,8 +33,9 @@ class AllRequestsController {
     return response.json({ allRequests })
   }
   async show(request, response) {
-    const { id } = request.params
-    const allRequests = await knex("allRequests").where({ user_id: id })
+    //const { id } = request.params
+    const user_id = request.user.id
+    const allRequests = await knex("allRequests").where({ user_id })
     return response.json({ allRequests })
   }
 }

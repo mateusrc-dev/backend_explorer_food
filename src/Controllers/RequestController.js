@@ -3,7 +3,8 @@ const knex = require("../database/knex")
 class RequestController {
   async create(request, response) {
     const { name, amount, price } = request.body
-    const { user_id } = request.params
+    const user_id = request.user.id
+    //const { user_id } = request.params
     await knex("requests").insert({ name, amount, price, user_id })
     response.json()
   }
@@ -18,7 +19,8 @@ class RequestController {
     return response.json()
   }
   async index(request, response) {
-    const { user_id } = request.query
+    //const { user_id } = request.query
+    const user_id = request.user.id
     const requests = await knex("requests").where({ user_id }).orderBy("name")
     return response.json({ requests })
   }

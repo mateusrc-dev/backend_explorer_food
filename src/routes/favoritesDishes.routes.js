@@ -2,8 +2,10 @@ const { Router } = require("express")
 const FavoritesDishesController = require("../Controllers/FavoritesDishesController")
 const favoritesDishesController = new FavoritesDishesController()
 const favoritesDishesRoutes = Router()
+const ensureAuthenticated = require("../middlewares/ensureAuthenticated")
 
-favoritesDishesRoutes.post("/:user_id", favoritesDishesController.create)
+favoritesDishesRoutes.use(ensureAuthenticated)
+favoritesDishesRoutes.post("/", favoritesDishesController.create)
 favoritesDishesRoutes.get("/", favoritesDishesController.index)
 favoritesDishesRoutes.delete("/:id", favoritesDishesController.delete)
 

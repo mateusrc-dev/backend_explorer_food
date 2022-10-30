@@ -2,8 +2,10 @@ const { Router } = require("express")
 const FavoritesDrinksController = require("../Controllers/FavoritesDrinksController")
 const favoritesDrinksController = new FavoritesDrinksController()
 const favoritesDrinksRoutes = Router()
+const ensureAuthenticated = require("../middlewares/ensureAuthenticated")
 
-favoritesDrinksRoutes.post("/:user_id", favoritesDrinksController.create)
+favoritesDrinksRoutes.use(ensureAuthenticated)
+favoritesDrinksRoutes.post("/", favoritesDrinksController.create)
 favoritesDrinksRoutes.get("/", favoritesDrinksController.index)
 favoritesDrinksRoutes.delete("/:id", favoritesDrinksController.delete)
 
