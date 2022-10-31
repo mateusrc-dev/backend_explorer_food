@@ -1,10 +1,18 @@
 const knex = require("../database/knex")
+const DiskStorage = require("../providers/DiskStorage")
 
 class DrinksController {
   async create(request, response) {
-    const { name, description, price, ingredients } = request.body
-    const drink_id = await knex("drinks").insert({ name, description, price })
-    const ingredientsInsert = ingredients.map(name => {
+    const { name } = request.body
+    const { description } = request.body
+    const { price } = request.body
+    const { ingredients } = request.body
+    let Ingredients = ingredients.split(",")
+    const avatarFileName = request.file.filename
+    const diskStorage = new DiskStorage()
+    const filename = await diskStorage.saveFile(avatarFileName)
+    const drink_id = await knex("drinks").insert({ name, description, price, image: filename })
+    const ingredientsInsert = Ingredients.map(name => {
       return {
         drink_id,
         name
