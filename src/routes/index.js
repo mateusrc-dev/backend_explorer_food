@@ -11,6 +11,7 @@ const favoritesDessertsRouter = require("./favoritesDesserts.routes")
 const admRouter = require("./adm.routes")
 const sessionsRouter = require("./sessions.routes")
 const sessionsAdmRouter = require("./sessionsAdm.routes")
+const RequestsAdmRoutes = require("./requestsadm.routes")
 
 const routes = Router()
 
@@ -26,5 +27,6 @@ routes.use("/allrequests", allRequestsRouter)
 routes.use("/adm", admRouter)
 routes.use("/sessions", sessionsRouter)
 routes.use("/sessionsadm", sessionsAdmRouter)
+routes.use("/requestsadm", RequestsAdmRoutes)
 
 module.exports = routes

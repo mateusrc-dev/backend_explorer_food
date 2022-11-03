@@ -8,6 +8,6 @@ requestRoutes.use(ensureAuthenticated)
 requestRoutes.post("/", requestController.create)
 requestRoutes.get("/:id", requestController.show)
 requestRoutes.get("/", requestController.index)
-requestRoutes.delete("/:id", requestController.delete)
+requestRoutes.delete("/", requestController.delete)
 
 module.exports = requestRoutes

@@ -2,10 +2,10 @@ const knex = require("../database/knex")
 
 class RequestController {
   async create(request, response) {
-    const { name, amount, price } = request.body
+    const { name, amount, price, image } = request.body
     const user_id = request.user.id
     //const { user_id } = request.params
-    await knex("requests").insert({ name, amount, price, user_id })
+    await knex("requests").insert({ name, amount, price, user_id, image })
     response.json()
   }
   async show(request, response) {
@@ -14,8 +14,7 @@ class RequestController {
     return response.json({ ...requests })
   }
   async delete(request, response) {
-    const { id } = request.params
-    await knex("requests").where({ id }).delete()
+    await knex("requests").delete()
     return response.json()
   }
   async index(request, response) {

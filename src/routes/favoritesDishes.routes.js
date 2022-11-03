@@ -8,5 +8,6 @@ favoritesDishesRoutes.use(ensureAuthenticated)
 favoritesDishesRoutes.post("/", favoritesDishesController.create)
 favoritesDishesRoutes.get("/", favoritesDishesController.index)
 favoritesDishesRoutes.delete("/:id", favoritesDishesController.delete)
+favoritesDishesRoutes.get("/:id", favoritesDishesController.show)
 
 module.exports = favoritesDishesRoutes 

@@ -4,10 +4,10 @@ const DiskStorage = require("../providers/DiskStorage")
 
 class DishesController {
   async create(request, response) {
-    const { name } = request.body
-    const { description } = request.body
+    const { name, description, price, ingredients } = request.body
+    /*const { description } = request.body
     const { price } = request.body
-    const { ingredients } = request.body
+    const { ingredients } = request.body*/
 
     let Ingredients = ingredients.split(",")
     const avatarFileName = request.file.filename
