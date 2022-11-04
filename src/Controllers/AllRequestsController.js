@@ -1,5 +1,5 @@
 const knex = require("../database/knex")
-const sqliteConnection = require("../database/sqlite")
+//const sqliteConnection = require("../database/sqlite")
 
 class AllRequestsController {
   async create(request, response) {
@@ -9,7 +9,7 @@ class AllRequestsController {
     await knex("allRequests").insert({ details, status, user_id })
     return response.json()
   }
-  async update(request, response) {
+  /*async update(request, response) {
     const { status, id } = request.body
     //const { id } = request.params;
     const database = await sqliteConnection()
@@ -21,7 +21,7 @@ class AllRequestsController {
     WHERE id = ?`, 
     [requests.status, id])
     return response.json(requests)
-  }
+  }*/
 
   async delete(request, response) {
     const { id } = request.params

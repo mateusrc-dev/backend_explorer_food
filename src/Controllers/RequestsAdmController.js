@@ -29,9 +29,15 @@ class RequestsAdmController {
     return response.json()
   }
 
-  async index(request, response) {
+  /*async index(request, response) {
     const allRequests = await knex("allRequests").orderBy("details")
     return response.json({ allRequests })
+  }*/
+
+  async index(request, response) {
+    //const { user_id } = request.query
+    const allRequestsUsers = await knex("allRequests").select(["allRequests.id", "users.name", "allRequests.status", "allRequests.details", "allRequests.created_at"]).innerJoin("users", "users.id", "allRequests.user_id").orderBy("users.name")
+    return response.json({ allRequestsUsers })
   }
   
   /*async show(request, response) {

@@ -8,7 +8,7 @@ allRequestsRoutes.use(ensureAuthenticated)
 allRequestsRoutes.post("/", allRequestsController.create)
 //allRequestsRoutes.get("/", allRequestsController.index)
 allRequestsRoutes.delete("/:id", allRequestsController.delete)
-allRequestsRoutes.put("/", allRequestsController.update)
+//allRequestsRoutes.put("/", allRequestsController.update)
 allRequestsRoutes.get("/", allRequestsController.show)
 
 module.exports = allRequestsRoutes
