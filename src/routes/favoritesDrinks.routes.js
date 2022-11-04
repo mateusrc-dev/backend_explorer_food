@@ -8,5 +8,6 @@ favoritesDrinksRoutes.use(ensureAuthenticated)
 favoritesDrinksRoutes.post("/", favoritesDrinksController.create)
 favoritesDrinksRoutes.get("/", favoritesDrinksController.index)
 favoritesDrinksRoutes.delete("/:id", favoritesDrinksController.delete)
+favoritesDrinksRoutes.get("/:id", favoritesDrinksController.show)
 
 module.exports = favoritesDrinksRoutes 

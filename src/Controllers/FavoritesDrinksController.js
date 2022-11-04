@@ -8,11 +8,17 @@ class favoritesDrinksController {
     await knex("favoritesDrinks").insert({ drink_id, user_id })
     response.json()
   }
-  
+
   async delete(request, response) {
     const { id } = request.params
-    await knex("favoritesDrinks").where({ id }).delete()
+    await knex("favoritesDrinks").where({ drink_id: id }).delete()
     return response.json()
+  }
+  async show(request, response) {
+    const { id } = request.params
+    const user_id = request.user.id
+    const favoriteDrink = await knex("favoritesDrinks").where({ drink_id: id }).where({ user_id })
+    return response.json({ favoriteDrink })
   }
   async index(request, response) {
     //const { user_id } = request.query
