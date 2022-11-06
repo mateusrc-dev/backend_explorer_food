@@ -16,7 +16,8 @@ class favoritesDessertsController {
   }
   async show(request, response) {
     const { id } = request.params
-    const favoriteDessert = await knex("favoritesDesserts").where({ dessert_id: id })
+    const user_id = request.user.id
+    const favoriteDessert = await knex("favoritesDesserts").where({ dessert_id: id }).where({ user_id })
     return response.json({ favoriteDessert })
   }
   async index(request, response) {
