@@ -13,6 +13,7 @@ const admRouter = require("./adm.routes")
 const sessionsRouter = require("./sessions.routes")
 const sessionsAdmRouter = require("./sessionsAdm.routes")
 const RequestsAdmRoutes = require("./requestsadm.routes")
+const searchRouter = require("./search.routes")
 
 const routes = Router()
 
@@ -30,5 +31,6 @@ routes.use("/adm", admRouter)
 routes.use("/sessions", sessionsRouter)
 routes.use("/sessionsadm", sessionsAdmRouter)
 routes.use("/requestsadm", RequestsAdmRoutes)
+routes.use("/search", searchRouter)
 
 module.exports = routes
