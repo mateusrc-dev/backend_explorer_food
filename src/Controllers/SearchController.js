@@ -1,4 +1,3 @@
-const { LIMIT_ATTACHED } = require("sqlite3")
 const knex = require("../database/knex")
 
 class SearchController {
