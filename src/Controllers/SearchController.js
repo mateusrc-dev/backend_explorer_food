@@ -20,7 +20,7 @@ class SearchController {
   async index(request, response) {
     const { search } = request.query
     const user_id = request.user.id
-    const Search = await knex("search").whereLike("search", `%${search}%`).where({ user_id }).orderByRaw("id DESC NULLS LAST").distinct("search")
+    const Search = await knex("search").whereLike("search", `%${search}%`).where({ user_id })
     return response.json({ Search })
   }
 }
