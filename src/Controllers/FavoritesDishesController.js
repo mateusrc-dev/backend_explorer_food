@@ -11,7 +11,8 @@ class favoritesDishesController {
 
   async delete(request, response) {
     const { id } = request.params
-    await knex("favoritesDishes").where({ dish_id: id }).delete()
+    const user_id = request.user.id
+    await knex("favoritesDishes").where({ dish_id: id }).where({ user_id }).delete()
     return response.json()
   }
   async show(request, response) {
