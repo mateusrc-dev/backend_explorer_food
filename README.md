@@ -13,6 +13,14 @@
 - Use of hooks (useEffect, useRef)
 - Use of icons (reaction icons)
 
+### In the Back-end we use techniques such as:
+
+- controller files - entry of orders into our api - controllers to search for dishes, desserts, drinks, search for favorite dishes, etc...
+- middleware - we use middleware to intermediate the requests, getting the JWT of the user logged in to the Header - if the information is not available, an error is returned
+- routes - we create the application routes, some have parameters
+- expless - a lib that handles server creation and route creation
+- dotenv - lib to be able to copy environment variables from the .env file to other files
+
 ### To use the project as a developer, follow these steps:
 
 1. You need to activate the server in both front-end and back-end files with the command "npm run dev"
